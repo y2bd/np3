@@ -1,0 +1,29 @@
+<section id="ratings" class="ratings">
+    {% for group, ratings in groups %}
+    <h2>{{ group }}</h4>
+    {% for rating in ratings %}
+    <div class="rating {% if rating.album_art_url %}has_art{% else %}no_art{% endif %}">
+        {% if rating.album_art_url %}
+        <img src="{{ rating.album_art_url }}" alt="{{ rating.album }}">
+        {% else %}
+        <img src="https://via.placeholder.com/240" alt="Placeholder">
+        {% endif %}
+        <aside>
+            <h3>{{ rating.album }}</h2>
+            <h4>{{ rating.artist }}</h3>
+            <p>
+            {% if rating.rating < 5.0 %}
+                😐
+            {% elif rating.rating < 7.0 %}
+                🙂
+            {% elif rating.rating < 9 %}
+                😊
+            {% else %}
+                😍
+            {% endif %}
+            </p>
+        </aside>
+    </div>
+    {% endfor %}
+    {% endfor %}
+</section>

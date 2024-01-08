@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<header>
+<h1 hx-get="/ratings" hx-target="#ratings">Now Playing 3.0</h1> by
+<select name="order_by" hx-get="/ratings" hx-target="#ratings">
+    <option value=timestamp>Last Reviewed</option>
+    <option value=album>Album</option>
+    <option value=artist>Artist</option>
+    <option value=rating>Rating</option>
+</select>
+</header>
+{% include "ratings.html" %}
+{% endblock %}

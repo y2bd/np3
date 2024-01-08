@@ -18,9 +18,6 @@ env/
 *.log
 
 # Dependency directories
-lib/
-libs/
-lib64/
 bin/
 include/
 share/

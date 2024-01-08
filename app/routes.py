@@ -1,6 +1,5 @@
 from app import app, executor
-from app.models import get_latest_ratings, store_latest_ratings
-from lib import rym
+from app.models import get_latest_ratings, store_latest_ratings, backfill_album_art
 from flask import render_template, request
 
 
@@ -20,3 +19,8 @@ def ratings(order_by=None):
 def update():
     executor.submit(store_latest_ratings)
     return "Ratings update queued"
+
+@app.route("/backfill_album_art")
+def backfill_album_art_route():
+    executor.submit(backfill_album_art)
+    return "Album art update queued"

@@ -1,6 +1,7 @@
 import httpx
 from bs4 import BeautifulSoup
 import re
+import os
 from datetime import datetime
 import lib.lastfm as lastfm
 
@@ -48,6 +49,8 @@ def get_ratings_from_page(page=1, user="y2bd"):
     return ratings
 
 def get_recent_page(page=1, user="y2bd"):
-    url = f"https://rateyourmusic.com/collection/{user}/recent/{page}"
+    rym_base_url = os.environ.get('RYM_BASE_URL') or 'https://rateyourmusic.com'
+
+    url = f"{rym_base_url}/collection/{user}/recent/{page}"
     r = httpx.get(url)
     return r.text

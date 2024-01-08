@@ -2,7 +2,7 @@
     {% for group, ratings in groups %}
     <h2>{{ group }}</h4>
     {% for rating in ratings %}
-    <div class="rating {% if rating.album_art_url %}has_art{% else %}no_art{% endif %}">
+    <div class="rating {% if rating.album_art_url %}has_art{% else %}no_art{% endif %}" tabindex="0">
         {% if rating.album_art_url %}
         <img src="{{ rating.album_art_url }}" alt="{{ rating.album }}">
         {% else %}

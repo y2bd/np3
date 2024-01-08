@@ -118,6 +118,26 @@ div.rating aside p {
     display: block;
 }
 
+@media (max-width: 768px) {
+    section.ratings {
+        gap: 12px;
+    }
+
+    div.rating {
+        width: 160px;
+        height: 160px;
+    }
+
+    div.rating aside {
+        padding: 6px;
+        padding-right: 6px;
+    }
+
+    div.rating aside p {
+        font-size: 1.5em;
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
         --main-bg-color: black;

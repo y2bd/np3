@@ -101,6 +101,8 @@ div.rating h4 {
     padding: 0;
 
     margin-bottom: 6px;
+
+    line-clamp: 2;
 }
 
 div.rating h3 {
@@ -124,8 +126,8 @@ div.rating aside p {
     }
 
     div.rating {
-        width: 150px;
-        height: 150px;
+        width: calc(50vw - 24px - 8px);
+        height: calc(50vw - 24px - 8px);
     }
 
     div.rating aside {
@@ -133,8 +135,15 @@ div.rating aside p {
         padding-right: 6px;
     }
 
+    div.rating h3,
+    div.rating h4 {
+        font-size: 1em;
+        line-height: 1.2em;
+        margin-bottom: 3px;
+    }
+
     div.rating aside p {
-        font-size: 1.5em;
+        font-size: 1.6em;
     }
 }
 

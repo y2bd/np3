@@ -12,7 +12,8 @@ def get_ratings_from_page(page=1, user="y2bd"):
     page_text = get_recent_page(page, user)
     soup = BeautifulSoup(page_text, "html.parser")
 
-    rows = soup.find_all("tr", id=re.compile("^page_catalog_item"))
+    row_container = soup.find("table", class_="mbgen")
+    rows = row_container.find_all("tr")
     for row in rows:
         try:
             if row.find('th', class_='or_q_header'):
@@ -41,7 +42,7 @@ def get_ratings_from_page(page=1, user="y2bd"):
                 review = row.find('div', class_='or_q_review').text
 
                 if last_rating:
-                    last_rating['review'] = review
+                    last_rating['review'] = review.strip()
                     last_rating = None
         except:
             pass

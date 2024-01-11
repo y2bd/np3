@@ -129,6 +129,10 @@ div.rating aside p {
         gap: 12px;
     }
 
+    section.ratings h2 {
+        margin-bottom: 0;
+    }
+
     div.rating {
         width: calc(50vw - 24px - 8px);
         height: calc(50vw - 24px - 8px);

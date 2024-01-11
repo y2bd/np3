@@ -166,8 +166,16 @@ div.rating aside p {
 
     div.rating {
         box-shadow: none;
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        border-radius: 0;
-        padding: 2px;
+        overflow: visible;
+    }
+
+    div.rating img, div.rating aside {
+        border-radius: 12px;
+    }
+
+    div.rating img.rating-bg {
+        filter: brightness(1.5) blur(6px) saturate(3);
+        opacity: 0.8;
+        z-index: -2;
     }
 }

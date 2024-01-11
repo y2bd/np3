@@ -53,7 +53,17 @@ def get_latest_ratings(order_by, limit=1000):
             .all()
         )
 
-        return groupby(ratings, lambda r: r.rating)
+        def emoji_rating(rating):
+            if rating.rating < 5:
+                return '😐'
+            elif rating.rating < 7:
+                return '🙂'
+            elif rating.rating < 9:
+                return '😊'
+            else:
+                return '😍'
+
+        return groupby(ratings, emoji_rating)
     else:
         ratings = (
             db.session.execute(
